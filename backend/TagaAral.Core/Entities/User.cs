@@ -1,0 +1,37 @@
+namespace TagaAral.Core.Entities;
+
+public class User 
+{
+    private User()
+    {
+    }
+
+    public User(string email, string username, string passwordHash)
+    {
+        Email = email;
+        Username = username;
+        PasswordHash = passwordHash;
+        CreatedAtUtc = DateTimeOffset.UtcNow;
+        UpdatedAtUtc = CreatedAtUtc;
+    }
+
+    public Guid Id { get; private set; }
+    public string Email { get; private set; }
+    public string Username { get; private set; }
+    public string PasswordHash { get; private set; }
+    public DateTimeOffset CreatedAtUtc { get; private set; }
+    public DateTimeOffset UpdatedAtUtc { get; private set; }
+
+    public void UpdateProfile(string email, string username)
+    {
+        Email = email;
+        Username = username;
+        UpdatedAtUtc = DateTimeOffset.UtcNow;
+    }
+
+    public void UpdatePassword(string passwordHash)
+    {
+        PasswordHash = passwordHash;
+        UpdatedAtUtc = DateTimeOffset.UtcNow;
+    }
+}

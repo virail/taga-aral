@@ -1,0 +1,10 @@
+.env
+appsettings.*.json
+bin/
+obj/
+node_modules/
+venv/
+__pycache__/
+.DS_Store
+*.user
+AGENTS.md
