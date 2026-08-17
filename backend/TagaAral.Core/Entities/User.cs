@@ -16,11 +16,12 @@ public class User
     }
 
     public Guid Id { get; private set; }
-    public string Email { get; private set; }
-    public string Username { get; private set; }
-    public string PasswordHash { get; private set; }
+    public string Email { get; private set; } = null!;
+    public string Username { get; private set; } = null!;
+    public string PasswordHash { get; private set; } = null!;
     public DateTimeOffset CreatedAtUtc { get; private set; }
     public DateTimeOffset UpdatedAtUtc { get; private set; }
+    public ICollection<RefreshToken> RefreshTokens { get; } = new List<RefreshToken>();
 
     public void UpdateProfile(string email, string username)
     {
